@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBlogFitness.BL", "CodeBlogFitness.BL\CodeBlogFitness.BL.csproj", "{548419AB-5C59-4FE3-83FA-A72056EFD2D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBlogFitness.CMD", "CodeBlogFitness.CMD\CodeBlogFitness.CMD.csproj", "{0B0D01D7-D1BA-4BC0-B4E2-3747F55268EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{548419AB-5C59-4FE3-83FA-A72056EFD2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{548419AB-5C59-4FE3-83FA-A72056EFD2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{548419AB-5C59-4FE3-83FA-A72056EFD2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B0D01D7-D1BA-4BC0-B4E2-3747F55268EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0D01D7-D1BA-4BC0-B4E2-3747F55268EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0D01D7-D1BA-4BC0-B4E2-3747F55268EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0D01D7-D1BA-4BC0-B4E2-3747F55268EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
