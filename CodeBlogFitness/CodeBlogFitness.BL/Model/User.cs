@@ -12,7 +12,7 @@ namespace CodeBlogFitness.BL.Model
     [Serializable]
     public class User
     {
-        
+        #region Свойства
         /// <summary>
         /// Имя.
         /// </summary>
@@ -33,6 +33,23 @@ namespace CodeBlogFitness.BL.Model
         /// Рост.
         /// </summary>
         public double Height { get; set; }
+
+        /// <summary>
+        /// Возраст.
+        /// </summary>
+        public int Age {
+            get
+            {
+                DateTime nowDate = DateTime.Now;
+                int age = nowDate.Year - BirthDate.Year;
+                if(BirthDate>nowDate.AddYears(-age))
+                {
+                    age--;
+                }
+                return DateTime.Now.Year - BirthDate.Year;
+            }
+        }
+        #endregion
         /// <summary>
         /// Создать нового пользователя.
         /// </summary>
@@ -95,7 +112,7 @@ namespace CodeBlogFitness.BL.Model
         }
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Age;
         }
     }
 }

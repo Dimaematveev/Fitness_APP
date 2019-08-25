@@ -33,6 +33,7 @@ namespace CodeBlogFitness.CMD
             #endregion
             var userController = new UserController(name);
 
+            Console.WriteLine(userController.CurrentUser);
             Console.ReadLine();
 
         }
