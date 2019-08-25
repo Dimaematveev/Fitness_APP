@@ -32,7 +32,34 @@ namespace CodeBlogFitness.CMD
             */
             #endregion
             var userController = new UserController(name);
+            if (userController.IsNewUser)
+            {
+                Console.WriteLine("Введите пол:");
+                var gender = Console.ReadLine();
 
+                DateTime birthDate;
+                while (true)
+                {
+                    Console.WriteLine("Введите Дату рождения (dd:MM:yyyy):");
+                    if (DateTime.TryParse(Console.ReadLine(), out birthDate))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Неправильный формат ДАТЫ!");
+                    }
+                }
+                
+
+                Console.WriteLine("Введите вес:");
+                var weight = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Введите рост:");
+                var height = double.Parse(Console.ReadLine());
+                userController.SetNewUserData(gender, birthDate, weight, height);
+
+            }
             Console.WriteLine(userController.CurrentUser);
             Console.ReadLine();
 

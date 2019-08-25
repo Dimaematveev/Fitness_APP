@@ -23,6 +23,10 @@ namespace CodeBlogFitness.BL.Controller
         /// </summary>
         public User CurrentUser { get; }
         /// <summary>
+        /// Флаг нового пользователя.
+        /// </summary>
+        public bool IsNewUser { get; } = false;
+        /// <summary>
         /// Создание нового контроллера пользователя.
         /// </summary>
         /// <param name="user"></param>
@@ -40,6 +44,7 @@ namespace CodeBlogFitness.BL.Controller
             {
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
+                IsNewUser = true;
                 Save();
             }
 
@@ -65,6 +70,21 @@ namespace CodeBlogFitness.BL.Controller
                 
             }
 
+        }
+        /// <summary>
+        /// Добавление свойств нашему новому пользователю.
+        /// </summary>
+        public void SetNewUserData(string genderName, 
+                                   DateTime birthDate, 
+                                   double weight = 1, 
+                                   double height = 1)
+        {
+            //TODO: Проверка
+            CurrentUser.Gender = new Gender(genderName);
+            CurrentUser.BirthDate = birthDate;
+            CurrentUser.Weight = weight;
+            CurrentUser.Height = height;
+            Save();
         }
         /// <summary>
         /// Сохранить данные пользователя.
