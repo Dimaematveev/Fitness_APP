@@ -14,8 +14,14 @@ namespace CodeBlogFitness.BL.Controller
     /// </summary>
     public class UserController
     {
-        //ПОльзователи приложения.
+        /// <summary>
+        /// ПОльзователи приложения.
+        /// </summary>
         public List<User> Users { get; }
+        /// <summary>
+        /// Текущий пользователь
+        /// </summary>
+        public User CurrentUser { get; }
         /// <summary>
         /// Создание нового контроллера пользователя.
         /// </summary>
@@ -27,7 +33,9 @@ namespace CodeBlogFitness.BL.Controller
                 throw new ArgumentNullException("Имя пользователя не должно быть пустым!",nameof(userName));
             }
             Users = GetUsersData();
-          
+
+            CurrentUser = Users.SingleOrDefault(u => u.Name == userName);
+
 
         }
 
