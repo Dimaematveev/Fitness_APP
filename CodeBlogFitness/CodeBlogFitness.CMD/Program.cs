@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CodeBlogFitness.BL.Controller;
+using CodeBlogFitness.BL.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +14,25 @@ namespace CodeBlogFitness.CMD
         {
             Console.WriteLine("Вас приветствует приложения CodeBlogFitness!");
             Console.WriteLine("Введите имя пользователя:");
+            var name = Console.ReadLine();
 
-            if (Console)
-            {
+            Console.WriteLine("Введите пол:");
+            var gender = Console.ReadLine();
 
-            }
+            Console.WriteLine("Введите Дату рождения:");
+            var birthDate = DateTime.Parse( Console.ReadLine()); //TODO: переписать
+
+            Console.WriteLine("Введите вес:");
+            var weight = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Введите рост:");
+            var height = double.Parse(Console.ReadLine());
+            var userController = new UserController(name,gender,birthDate, weight,height);
+
+            userController.Save();
+
+            Console.ReadLine();
+
         }
     }
 }

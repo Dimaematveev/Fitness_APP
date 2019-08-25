@@ -20,13 +20,16 @@ namespace CodeBlogFitness.BL.Controller
         /// Создание нового контроллера пользователя.
         /// </summary>
         /// <param name="user"></param>
-        public UserController (User user)
+        public UserController(string userName, 
+                              string genderName, 
+                              DateTime birdthDate, 
+                              double weight, 
+                              double height)
         {
-            if (user is null)
-            {
-                throw new ArgumentNullException("Пользователь не может быть равен null!",nameof(user));
-            }
-            User = user;
+            // TODO: Проверка.
+            var gender = new Gender(genderName);
+            User= new User(userName, gender, birdthDate, weight, height);
+          
         }
         /// <summary>
         /// Сохранить данные пользователя.
