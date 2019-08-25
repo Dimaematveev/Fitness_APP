@@ -11,11 +11,7 @@ namespace CodeBlogFitness.BL.Controller.Tests
     [TestClass()]
     public class UserControllerTests
     {
-        [TestMethod()]
-        public void UserControllerTest()
-        {
-            Assert.Fail();
-        }
+        
 
         [TestMethod()]
         public void SetNewUserDataTest()
@@ -26,7 +22,15 @@ namespace CodeBlogFitness.BL.Controller.Tests
         [TestMethod()]
         public void SaveTest()
         {
-            Assert.Fail();
+            //Arrange Объявление
+            string userName = Guid.NewGuid().ToString();
+
+
+            //Act действие
+            var userController = new UserController(userName);
+
+            //Assert Проверка
+            Assert.AreEqual(userName, userController.CurrentUser.Name);
         }
     }
 }
