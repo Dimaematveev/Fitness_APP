@@ -8,6 +8,14 @@ namespace CodeBlogFitness.BL.Model
 {
     public class Gender
     {
+        /// <summary>
+        /// Название.
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// Создание нового пола.
+        /// </summary>
+        /// <param name="name">Имя пола.</param>
         public Gender(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -17,6 +25,9 @@ namespace CodeBlogFitness.BL.Model
             Name = name;
         }
 
-        public string Name { get; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
