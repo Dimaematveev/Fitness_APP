@@ -43,13 +43,16 @@ namespace CodeBlogFitness.BL.Controller
         /// Получить данные пользователя.
         /// </summary>
         /// <returns> Пользователь приложения!</returns>
-        public User Load()
+        public UserController()
         {
             var formatter = new BinaryFormatter();
             using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
-                return formatter.Deserialize(fs) as User
-               
+                if(formatter.Deserialize(fs) is User user)
+                {
+                    User = user;
+                }
+                // TODO: Что делать если пользователя не прочитали?
             }
             
         }
