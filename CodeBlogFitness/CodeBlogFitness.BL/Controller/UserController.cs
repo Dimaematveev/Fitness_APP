@@ -14,22 +14,43 @@ namespace CodeBlogFitness.BL.Controller
     /// </summary>
     public class UserController
     {
-        //ПОльзователь приложения.
-        public User User { get; }
+        //ПОльзователи приложения.
+        public List<User> Users { get; }
         /// <summary>
         /// Создание нового контроллера пользователя.
         /// </summary>
         /// <param name="user"></param>
-        public UserController(string userName, 
-                              string genderName, 
-                              DateTime birdthDate, 
-                              double weight, 
-                              double height)
+        public UserController(string userName)
         {
-            // TODO: Проверка.
-            var gender = new Gender(genderName);
-            User= new User(userName, gender, birdthDate, weight, height);
+            if(string.IsNullOrWhiteSpace(userName))
+            {
+                throw new ArgumentNullException("Имя пользователя не должно быть пустым!",nameof(userName));
+            }
+            Users = GetUsersData();
           
+
+        }
+
+        /// <summary>
+        /// Получить сохраненный список пользователей.
+        /// </summary>
+        /// <returns> Пользователь приложения!</returns>
+        private List<User> GetUsersData()
+        {
+            var formatter = new BinaryFormatter();
+            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
+            {
+                if (formatter.Deserialize(fs) is List<User> users)
+                {
+                    return users;
+                }
+                else
+                {
+                    return new List<User>();
+                }
+                
+            }
+
         }
         /// <summary>
         /// Сохранить данные пользователя.
@@ -39,25 +60,9 @@ namespace CodeBlogFitness.BL.Controller
             var formatter = new BinaryFormatter();
             using (var fs = new FileStream("users.dat",FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, User);
+                formatter.Serialize(fs, Users);
             }
         }
-        /// <summary>
-        /// Получить данные пользователя.
-        /// </summary>
-        /// <returns> Пользователь приложения!</returns>
-        public UserController()
-        {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                if(formatter.Deserialize(fs) is User user)
-                {
-                    User = user;
-                }
-                // TODO: Что делать если пользователя не прочитали?
-            }
-            
-        }
+        
     }
 }
