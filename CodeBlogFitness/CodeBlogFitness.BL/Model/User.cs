@@ -75,6 +75,24 @@ namespace CodeBlogFitness.BL.Model
             Weight = weight;
             Height = height;
         }
+        /// <summary>
+        /// Создать нового пользователя.
+        /// </summary>
+        /// <param name="name">Имя.</param>
+        /// <param name="gender">Пол.</param>
+        /// <param name="birthDate">Дата рождения.</param>
+        /// <param name="weight">Вес.</param>
+        /// <param name="height">Рост.</param>
+        public User(string name)
+        {
+            #region Проверка условий!
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException($"Имя пользователя не должно быть пустым или null!", nameof(name));
+            }
+            #endregion
+            Name = name;
+        }
         public override string ToString()
         {
             return Name;

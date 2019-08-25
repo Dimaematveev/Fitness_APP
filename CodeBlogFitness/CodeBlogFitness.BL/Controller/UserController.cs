@@ -36,6 +36,12 @@ namespace CodeBlogFitness.BL.Controller
 
             CurrentUser = Users.SingleOrDefault(u => u.Name == userName);
 
+            if (CurrentUser == null)
+            {
+                CurrentUser = new User(userName);
+                Users.Add(CurrentUser);
+                Save();
+            }
 
         }
 

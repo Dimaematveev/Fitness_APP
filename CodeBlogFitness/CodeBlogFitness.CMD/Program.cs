@@ -15,7 +15,8 @@ namespace CodeBlogFitness.CMD
             Console.WriteLine("Вас приветствует приложения CodeBlogFitness!");
             Console.WriteLine("Введите имя пользователя:");
             var name = Console.ReadLine();
-
+            #region Coment
+            /*
             Console.WriteLine("Введите пол:");
             var gender = Console.ReadLine();
 
@@ -27,9 +28,10 @@ namespace CodeBlogFitness.CMD
 
             Console.WriteLine("Введите рост:");
             var height = double.Parse(Console.ReadLine());
-            var userController = new UserController(name,gender,birthDate, weight,height);
-
-            userController.Save();
+            
+            */
+            #endregion
+            var userController = new UserController(name);
 
             Console.ReadLine();
 
