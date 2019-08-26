@@ -39,7 +39,7 @@ namespace CodeBlogFitness.CMD
                 var birthDate = ParseDateTime();
                 var weight = ParseDouble("Вес");
                 var height = ParseDouble("Рост");
-               
+               1:50:34
 
                 userController.SetNewUserData(gender, birthDate, weight, height);
 
