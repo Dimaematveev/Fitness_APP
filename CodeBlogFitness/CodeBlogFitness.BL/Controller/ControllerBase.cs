@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CodeBlogFitness.BL.Controller
 {
-    abstract class ControllerBase
+    public abstract class ControllerBase
     {
         /// <summary>
         /// Сохранить данные пользователя.
