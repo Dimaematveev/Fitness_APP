@@ -32,19 +32,6 @@ namespace CodeBlogFitness.BL.Controller
             Foods = GetAllFoods();
             Eating = GetAllEating();
         }
-        public bool Add(string foodName,
-                        double weight)
-        {
-            var food = Foods.SingleOrDefault(f => f.Name == foodName);
-            if (food!=null)
-            {
-                Eating.Add(food, weight);
-                Save();
-                return true;
-            }
-            return false;
-
-        }
         public void Add(Food food,
                         double weight)
         {
