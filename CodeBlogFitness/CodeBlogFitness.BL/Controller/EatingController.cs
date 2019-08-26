@@ -26,6 +26,7 @@ namespace CodeBlogFitness.BL.Controller
         public EatingController(User user)
         {
             this.user = user ?? throw new ArgumentNullException("Пользователь не может быть пустым!", nameof(user));
+            Foods = GetAllFoods();
         }
 
         private List<Food> GetAllFoods()
@@ -45,5 +46,7 @@ namespace CodeBlogFitness.BL.Controller
 
             }
         }
+
+        private 
     }
 }
