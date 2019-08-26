@@ -9,6 +9,7 @@ namespace CodeBlogFitness.BL.Model
     /// <summary>
     /// Продукт(Еда).
     /// </summary>
+    [Serializable]
     public class Food
     {
         /// <summary>
@@ -32,7 +33,7 @@ namespace CodeBlogFitness.BL.Model
         /// Калории за 1гр.
         /// </summary>
         public double Calorie { get; }
-
+       
         public Food(string name) : this(name, 0, 0, 0, 0) { }
 
         public Food(string name,
