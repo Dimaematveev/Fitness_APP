@@ -32,6 +32,7 @@ namespace CodeBlogFitness.CMD
             */
             #endregion
             var userController = new UserController(name);
+            var eatingController = new EatingController(userController.CurrentUser);
             if (userController.IsNewUser)
             {
                 Console.WriteLine("Введите пол:");
@@ -39,7 +40,7 @@ namespace CodeBlogFitness.CMD
                 var birthDate = ParseDateTime();
                 var weight = ParseDouble("Вес");
                 var height = ParseDouble("Рост");
-               1:50:34
+                
 
                 userController.SetNewUserData(gender, birthDate, weight, height);
 
@@ -47,11 +48,45 @@ namespace CodeBlogFitness.CMD
             Console.WriteLine(userController.CurrentUser);
 
 
+            Console.WriteLine("Что вы хотите сделать?");
+            Console.WriteLine("Е - ввести прием пищи");
+            var key=Console.ReadKey();
+            Console.WriteLine();
+            if (key.Key == ConsoleKey.E)
+            {
+               var foods = EnterEating();
+                eatingController.Add(foods.Food, foods.Weight);
+
+                foreach (var food in eatingController.Eating.Foods)
+                {
+                    Console.WriteLine($"{food.Key} {food.Value}");
+                }
+            }
 
 
             Console.ReadLine();
 
         }
+
+        private static (Food Food, double Weight) EnterEating()
+        {
+            Console.Write("Введите имя продукта: ");
+            var food = Console.ReadLine();
+
+
+            var calories = ParseDouble("калорийность");
+            var prots = ParseDouble("белки");
+            var fats = ParseDouble("жиры");
+            var carbs = ParseDouble("углеводы");
+
+
+
+            var weight = ParseDouble("вес порции");
+
+            var product = new Food(food,calories,prots,fats,carbs);
+            return (product, weight);
+        }
+
         /// <summary>
         /// Распарсиваем DateTime.
         /// </summary>
@@ -92,7 +127,7 @@ namespace CodeBlogFitness.CMD
                 }
                 else
                 {
-                    Console.WriteLine($"Неправильный формат {name}!");
+                    Console.WriteLine($"Неправильный формат поля {name}!");
                 }
             }
         }
