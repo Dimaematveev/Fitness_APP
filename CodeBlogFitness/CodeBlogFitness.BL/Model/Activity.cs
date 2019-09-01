@@ -10,9 +10,9 @@ namespace CodeBlogFitness.BL.Model
     public class Activity
     {
        
-
-        public string Name { get; }
-        public double CalloriesPerMinute { get; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double CalloriesPerMinute { get; set; }
         public Activity(string name, double calloriesPerMinute)
         {
             //TODO: Проверки

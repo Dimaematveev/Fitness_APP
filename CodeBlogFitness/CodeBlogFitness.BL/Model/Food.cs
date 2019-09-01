@@ -12,28 +12,29 @@ namespace CodeBlogFitness.BL.Model
     [Serializable]
     public class Food
     {
+        public int Id { get; set; }
         /// <summary>
         /// Название за 1гр.
         /// </summary>
-        public string Name { get;  }
+        public string Name { get; set; }
         /// <summary>
         /// Белки за 1гр.
         /// </summary>
-        public double Proteins { get;  }
+        public double Proteins { get; set; }
         /// <summary>
         /// Жиры за 1гр.
         /// </summary>
-        public double Fats { get; }
+        public double Fats { get; set; }
         /// <summary>
         /// Углеводы за 1гр.
         /// </summary>
-        public double Carbohydrates { get; }
+        public double Carbohydrates { get; set; }
 
         /// <summary>
         /// Калории за 1гр.
         /// </summary>
-        public double Calorie { get; }
-       
+        public double Calorie { get; set; }
+
         public Food(string name) : this(name, 0, 0, 0, 0) { }
 
         public Food(string name,

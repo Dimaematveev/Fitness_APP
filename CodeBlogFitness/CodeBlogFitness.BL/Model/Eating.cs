@@ -12,19 +12,21 @@ namespace CodeBlogFitness.BL.Model
     [Serializable]
     public class Eating
     {
+        public int Id { get; set; }
         /// <summary>
         /// Момент приема пищи.
         /// </summary>
-        public DateTime Moment { get; }
+        public DateTime Moment { get; set; }
         /// <summary>
         /// Список продуктов приема!
         /// </summary>
-        public Dictionary<Food, double> Foods { get; }
+        public Dictionary<Food, double> Foods { get; set; }
         
+        public int UserId { get; set; }
         /// <summary>
         /// Кто ел.
         /// </summary>
-        public User User { get; }
+        public virtual User User { get; set; }
 
         public Eating(User user)
         {

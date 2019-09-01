@@ -8,40 +8,16 @@ using System.Threading.Tasks;
 
 namespace CodeBlogFitness.BL.Controller
 {
-    public abstract class ControllerBase
+    public abstract class ControllerBase<T> where T:class
     {
-        /// <summary>
-        /// Сохранить данные пользователя.
-        /// </summary>
-        protected void Save(string fileName, object item)
+        protected IDataSaver<T> manager = new DatabaseDataSaver<T>();
+        protected void Save(T item)
         {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, item);
-            }
+            manager.Save(item);
         }
-
-
-        /// <summary>
-        /// Загрузить данные пользователя.
-        /// </summary>
-        protected T Load<T>(string fileName)
+        protected List<T> Load() 
         {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-
-                if (fs.Length > 0 && formatter.Deserialize(fs) is T items)
-                {
-                    return items;
-                }
-                else
-                {
-                    return default(T);
-                }
-
-            }
+            return manager.Load();
         }
     }
 }
