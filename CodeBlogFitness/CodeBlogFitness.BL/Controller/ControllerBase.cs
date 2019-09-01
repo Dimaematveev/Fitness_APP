@@ -16,7 +16,7 @@ namespace CodeBlogFitness.BL.Controller
         /// <summary>
         /// Класс из которого будет вызываться методы сохранения и загрузки!
         /// </summary>
-        private readonly IDataSaver manager = new DatabaseSaver();
+        private readonly IDataSaver manager = new SerializableSaver();
         /// <summary>
         /// Метод для сохранения элементов.
         /// </summary>
