@@ -25,5 +25,9 @@ namespace CodeBlogFitness.BL.Model
             Activity = activity;
             User = user;
         }
+
+        public Exercise()
+        {
+        }
     }
 }

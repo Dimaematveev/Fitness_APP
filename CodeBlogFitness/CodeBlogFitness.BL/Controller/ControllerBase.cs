@@ -8,16 +8,32 @@ using System.Threading.Tasks;
 
 namespace CodeBlogFitness.BL.Controller
 {
-    public abstract class ControllerBase<T> where T:class
+    /// <summary>
+    /// Базовый контроллер. Для сохранения и загрузки данных!
+    /// </summary>
+    public abstract class ControllerBase
     {
-        protected IDataSaver<T> manager = new DatabaseDataSaver<T>();
-        protected void Save(T item)
+        /// <summary>
+        /// Класс из которого будет вызываться методы сохранения и загрузки!
+        /// </summary>
+        private readonly IDataSaver manager = new SerializableSaver();
+        /// <summary>
+        /// Метод для сохранения элементов.
+        /// </summary>
+        /// <typeparam name="T">Тип который будем сохранять.</typeparam>
+        /// <param name="item">Коллекция элементов которые сохраняем.</param>
+        protected void Save<T>(List<T> item) where T : class
         {
             manager.Save(item);
         }
-        protected List<T> Load() 
+        /// <summary>
+        /// Метод для загрузки элементов.
+        /// </summary>
+        /// <typeparam name="T">Тип который будем сохранять.</typeparam>
+        /// <returns>Коллекция элементов которые загружаем.</returns>
+        protected List<T> Load<T>() where T : class
         {
-            return manager.Load();
+            return manager.Load<T>();
         }
     }
 }

@@ -9,7 +9,8 @@ namespace CodeBlogFitness.BL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            ContextKey = "CodeBlogFitness.BL.Controller.FitnessContext";
         }
 
         protected override void Seed(CodeBlogFitness.BL.Controller.FitnessContext context)

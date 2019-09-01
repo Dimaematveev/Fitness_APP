@@ -35,6 +35,11 @@ namespace CodeBlogFitness.BL.Model
             Moment = DateTime.UtcNow;
             Foods = new Dictionary<Food, double>();
         }
+
+        public Eating()
+        {
+        }
+
         /// <summary>
         /// Добавить продукт что съели и сколько!
         /// </summary>

@@ -30,6 +30,10 @@ namespace CodeBlogFitness.BL.Model
             Name = name;
         }
 
+        public Gender()
+        {
+        }
+
         public override string ToString()
         {
             return Name;

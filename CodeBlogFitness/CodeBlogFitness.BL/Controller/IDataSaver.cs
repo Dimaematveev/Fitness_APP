@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace CodeBlogFitness.BL.Controller
 {
-    public interface IDataSaver<T> where T:class
+    /// <summary>
+    /// Интерфейс сохранения и загрузки коллекций из данных(текст, БД)!
+    /// </summary>
+    public interface IDataSaver
         
     {
-        void Save(T item);
-        List<T> Load();
+        /// <summary>
+        /// Метод для сохранения элементов.
+        /// </summary>
+        /// <typeparam name="T">Тип который будем сохранять.</typeparam>
+        /// <param name="item">Коллекция элементов которые сохраняем.</param>
+        void Save<T>(List<T> item) where T : class;
+        /// <summary>
+        /// Метод для загрузки элементов.
+        /// </summary>
+        /// <typeparam name="T">Тип который будем сохранять.</typeparam>
+        /// <returns>Коллекция элементов которые загружаем.</returns>
+        List<T> Load<T>() where T : class;
 
     }
 }

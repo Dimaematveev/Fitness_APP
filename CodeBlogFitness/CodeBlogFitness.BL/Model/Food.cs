@@ -51,6 +51,10 @@ namespace CodeBlogFitness.BL.Model
             Carbohydrates = carbohydrates / 100.0;
         }
 
+        public Food()
+        {
+        }
+
         public override string ToString()
         {
             return Name; 

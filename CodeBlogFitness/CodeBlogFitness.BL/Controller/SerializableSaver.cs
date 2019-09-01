@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 
 namespace CodeBlogFitness.BL.Controller
 {
-    public class SerializeDataSaver<T> : IDataSaver<T> where T:class
+    /// <summary>
+    /// Сохранение и загрузка данных через сериализацию!
+    /// </summary>
+    public class SerializableSaver : IDataSaver
     {
         /// <summary>
         /// Сохранить данные пользователя.
         /// </summary>
-        public void Save(T item)
+        /// <typeparam name="T">Тип данных которые сохранится!</typeparam>
+        /// <param name="item">Список данных.</param>
+        public void Save<T>(List<T> item) where T : class
         {
             var formatter = new BinaryFormatter();
-            var fileName = typeof(T) + ".dat";
+            var fileName = typeof(T).Name;
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, item);
@@ -26,24 +31,24 @@ namespace CodeBlogFitness.BL.Controller
 
 
         /// <summary>
-        /// Загрузить данные пользователя.
+        /// Загрузить данные!
         /// </summary>
-
-
-        public T Load()
+        /// <typeparam name="T">Тип данных которые загрузятся!</typeparam>
+        /// <returns>Список данных.</returns>
+        public List<T> Load<T>() where T : class
         {
             var formatter = new BinaryFormatter();
-            var fileName = typeof(T) + ".dat";
+            var fileName = typeof(T).Name;
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
 
-                if (fs.Length > 0 && formatter.Deserialize(fs) is T items)
+                if (fs.Length > 0 && formatter.Deserialize(fs) is List<T> items)
                 {
                     return items;
                 }
                 else
                 {
-                    return default(T);
+                    return new List<T>();
                 }
 
             }
