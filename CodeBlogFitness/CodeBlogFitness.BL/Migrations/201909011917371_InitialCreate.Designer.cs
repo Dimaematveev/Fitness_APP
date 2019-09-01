@@ -13,7 +13,7 @@ namespace CodeBlogFitness.BL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201909011816593_InitialCreate"; }
+            get { return "201909011917371_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

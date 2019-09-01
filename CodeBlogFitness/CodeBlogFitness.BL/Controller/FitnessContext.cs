@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CodeBlogFitness.BL.Controller
 {
-    class FitnessContext:DbContext
+    public class FitnessContext:DbContext
     {
         public FitnessContext() : base("DBConnection") { }
         public DbSet<Activity> Activities { get; set; }

@@ -11,6 +11,7 @@ namespace CodeBlogFitness.BL.Migrations
         {
             AutomaticMigrationsEnabled = true;
             ContextKey = "CodeBlogFitness.BL.Controller.FitnessContext";
+
         }
 
         protected override void Seed(CodeBlogFitness.BL.Controller.FitnessContext context)
