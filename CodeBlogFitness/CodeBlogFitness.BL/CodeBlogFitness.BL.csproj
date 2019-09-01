@@ -56,6 +56,10 @@
     <Compile Include="Controller\IDataSaver.cs" />
     <Compile Include="Controller\SerializableSaver.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Migrations\201909011820390_InitialCreate.cs" />
+    <Compile Include="Migrations\201909011820390_InitialCreate.Designer.cs">
+      <DependentUpon>201909011820390_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\Eating.cs" />
@@ -68,6 +72,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909011820390_InitialCreate.resx">
+      <DependentUpon>201909011820390_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

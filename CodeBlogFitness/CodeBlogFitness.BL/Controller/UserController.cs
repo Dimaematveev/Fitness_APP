@@ -14,7 +14,7 @@ namespace CodeBlogFitness.BL.Controller
     /// </summary>
     public class UserController : ControllerBase
     {
-        private const string USERS_FILE_NAME = "users.dat";
+      
         /// <summary>
         /// ПОльзователи приложения.
         /// </summary>
@@ -57,7 +57,7 @@ namespace CodeBlogFitness.BL.Controller
         /// <returns> Пользователь приложения!</returns>
         private List<User> GetUsersData()
         {
-            return Load<List<User>>(USERS_FILE_NAME) ?? new List<User>();
+            return Load<User>() ?? new List<User>();
            
 
         }
@@ -81,7 +81,7 @@ namespace CodeBlogFitness.BL.Controller
         /// </summary>
         public void Save()
         {
-            Save(USERS_FILE_NAME, Users);
+            Save(Users);
         }
         
     }
